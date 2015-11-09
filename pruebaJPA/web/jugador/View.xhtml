@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="JugadorViewDlg" widgetVar="JugadorViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewJugadorTitle}">
+            <h:form id="JugadorViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{jugadorController.selected != null}">
+                        <h:outputText value="#{bundle.ViewJugadorLabel_idjugador}"/>
+                        <h:outputText value="#{jugadorController.selected.idjugador}" title="#{bundle.ViewJugadorTitle_idjugador}"/>
+                        <h:outputText value="#{bundle.ViewJugadorLabel_nombre}"/>
+                        <h:outputText value="#{jugadorController.selected.nombre}" title="#{bundle.ViewJugadorTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewJugadorLabel_apellido}"/>
+                        <h:outputText value="#{jugadorController.selected.apellido}" title="#{bundle.ViewJugadorTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewJugadorLabel_fechaNacimiento}"/>
+                        <h:outputText value="#{jugadorController.selected.fechaNacimiento}" title="#{bundle.ViewJugadorTitle_fechaNacimiento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="JugadorViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PartidoViewDlg" widgetVar="PartidoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPartidoTitle}">
+            <h:form id="PartidoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{partidoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPartidoLabel_idpartido}"/>
+                        <h:outputText value="#{partidoController.selected.idpartido}" title="#{bundle.ViewPartidoTitle_idpartido}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_fechaHora}"/>
+                        <h:outputText value="#{partidoController.selected.fechaHora}" title="#{bundle.ViewPartidoTitle_fechaHora}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_arbritroCentral}"/>
+                        <h:outputText value="#{partidoController.selected.arbritroCentral}" title="#{bundle.ViewPartidoTitle_arbritroCentral}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_idarbritro1}"/>
+                        <h:outputText value="#{partidoController.selected.idarbritro1}" title="#{bundle.ViewPartidoTitle_idarbritro1}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_idarbritro2}"/>
+                        <h:outputText value="#{partidoController.selected.idarbritro2}" title="#{bundle.ViewPartidoTitle_idarbritro2}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_idarbritro3}"/>
+                        <h:outputText value="#{partidoController.selected.idarbritro3}" title="#{bundle.ViewPartidoTitle_idarbritro3}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_idcancha}"/>
+                        <h:outputText value="#{partidoController.selected.idcancha}" title="#{bundle.ViewPartidoTitle_idcancha}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_equipoVisitante}"/>
+                        <h:outputText value="#{partidoController.selected.equipoVisitante}" title="#{bundle.ViewPartidoTitle_equipoVisitante}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_equipoLocal}"/>
+                        <h:outputText value="#{partidoController.selected.equipoLocal}" title="#{bundle.ViewPartidoTitle_equipoLocal}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PartidoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
