@@ -7,9 +7,24 @@
         <title>Facelet Title</title>
         <h:outputStylesheet name="bootstrap"/>
     </h:head>
-    <h:body>       
-               
-            
+    <h:body>    
+        
+        <h:form>  
+            <p:growl id="messages" showDetail="false"/>
+        <p:menu>   
+        <p:submenu label="Ajax">
+            <p:menuitem value="Save"  update="messages" icon="ui-icon-disk" />
+            <p:menuitem value="Update"  update="messages" icon="ui-icon-arrowrefresh-1-w"/>
+        </p:submenu>
+        <p:submenu label="Non-Ajax">
+            <p:menuitem value="Delete"  update="messages" ajax="false" icon="ui-icon-close"/>
+        </p:submenu>
+        <p:submenu label="Navigations">
+            <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
+            <p:menuitem value="Internal"  icon="ui-icon-star"/>
+        </p:submenu>
+        </p:menu>
+            </h:form>
         Hello from Facelets
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
